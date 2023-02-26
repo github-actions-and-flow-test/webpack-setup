@@ -1,0 +1,25 @@
+@import "montserrat.css";
+@import "normalize.css";
+
+.container {
+    margin: 0 auto;
+    padding-top: 2rem;
+    max-width: 1000px;
+}
+
+h1 {
+    text-align: center;
+}
+
+body {
+    background: white;
+    font-family: Montserrat, sans-serif;
+}
+
+.logo {
+    background-image: url("../assets/icon-square-big.svg");
+    background-size: cover;
+    margin: 0 auto;
+    width: 200px;
+    height: 200px;
+}

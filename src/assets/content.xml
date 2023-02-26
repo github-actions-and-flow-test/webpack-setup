@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<Catalog>
+    <Content>
+        <Step> Introduction to Webpack </Step>
+        <Step> Loaders </Step>
+        <Step> Plugins </Step>
+        <Step> Build modes </Step>
+        <Step> Code splitting </Step>
+        <Step> Practical application of Webpack </Step>
+        <Step> Additional features of Webpack </Step>
+        <Step> Conclusion </Step>
+
+    </Content>
+</Catalog>
