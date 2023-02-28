@@ -1,18 +1,18 @@
 function getAnalytics (): object {
     let counter = 0
 
-    const listener = (): number => counter++
+    const listener = () => counter++
 
-    document.addEventListener('click', listener)
+    document.addEventListener('click', (event: Event) => {
+        listener()
+    })
 
     return {
-        destroy() {
-            document.removeEventListener('click', listener)
-        },
-
-        getClicks() {
-            return  console.log(`Your clicks: ${counter}`)
+        getClicks(): void {
+            return  console.log(`Your clicks: ${counter.toString()}`)
         }
     }
 }
  getAnalytics()
+
+console.log('hello from analytics')

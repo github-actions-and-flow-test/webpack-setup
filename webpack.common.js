@@ -1,24 +1,17 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CopyPlugin = require('copy-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin")
+const path = require("path");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
-const ESLintPlugin = require('eslint-webpack-plugin');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const ESLintPlugin = require("eslint-webpack-plugin");
 
-if (process.env.NODE_ENV === 'production') {
-    console.log('Welcome to production');
-}
-
-const isDev = process.env.NODE_env === 'development'
-console.log(isDev)
 
 module.exports = {
-    mode: "development",
     context: path.resolve(__dirname, 'src'),
     entry: {
-        main: "./index.jsx",
-        analytics: "./analytics.ts"
+        main: "/index.tsx",
+        analytics: "/analytics.ts"
     },
     output: {
         filename: "[name].[contenthash].js",
@@ -34,16 +27,6 @@ module.exports = {
             new TerserPlugin()
         ]
     },
-    devServer: {
-        static: {
-            directory: path.join(__dirname, 'src')
-        },
-        compress: true,
-        open: true,
-        port: 9000,
-        hot: true,
-    },
-    devtool: isDev ? "source-map" : false,
     plugins: [
         new HtmlWebpackPlugin({
             template: "./index.html"
@@ -109,6 +92,11 @@ module.exports = {
 
             },
             {
+                test: /\.tsx?$/,
+                exclude: /node_modules/,
+                loader: 'ts-loader'
+            },
+            {
                 test: /\.ts$/,
                 exclude: /node_modules/,
                 use: "ts-loader",
@@ -119,3 +107,4 @@ module.exports = {
         extensions: ['.tsx', '.ts', '.js']
     }
 }
+
